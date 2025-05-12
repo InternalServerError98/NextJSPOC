@@ -1,6 +1,6 @@
 import bcryptjs from 'bcryptjs';
 import postgres from 'postgres';
-import { neon, NeonQueryInTransaction } from '@neondatabase/serverless';
+import { neon } from '@neondatabase/serverless';
 import { invoices, customers, revenue, users } from '../lib/placeholder-data';
 
 // const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
@@ -115,7 +115,7 @@ export async function GET() {
     await seedRevenue();
    
     return Response.json({ message: 'Database seeded successfully' });
-    
+
   } catch (error) {
     return Response.json({ error }, { status: 500 });
   }
